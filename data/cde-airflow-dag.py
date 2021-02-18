@@ -31,7 +31,7 @@ start = DummyOperator(task_id='start', dag=dag)
 
 
 process_write_s3_job = CDEJobRunOperator(
-    task_id='airflow_spark_job',
+    task_id='cde_spark_job',
     dag=dag,
     job_name='airflow-spark-job',
     variables={
@@ -43,7 +43,7 @@ process_write_s3_job = CDEJobRunOperator(
 
 
 hive_cdw_job = CDWOperator(
-    task_id='hive-cdw-job',
+    task_id='cdw_hive_job',
     dag=dag,
     cli_conn_id='hive-vw-connid',
     hql=hive_vw_query,
